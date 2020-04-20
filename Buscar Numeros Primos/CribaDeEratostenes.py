@@ -15,7 +15,7 @@ def CribaDeEratostenes(n):
 start_time = time()
 
 # Introducir numero aqui
-CribaDeEratostenes(1000000)
+CribaDeEratostenes(100000)
 
 elapsed_time = time() - start_time
-print("Tiempo de respuesta: %.10f seconds." % elapsed_time)
+print("Tiempo de respuesta: %.10f segundos." % elapsed_time)
