@@ -12,7 +12,7 @@ bg = 25, 25, 25
 screen.fill(bg)
 
 # Numero de celdas
-nxC, nyC = 25,25
+nxC, nyC = 25, 25
 
 # Dimensiones de las celdas
 dimCW = width/nxC
@@ -28,24 +28,39 @@ gameState[5, 5] = 1
 
 pauseExect = False
 
-while True:
-
+while not endGame:
     newGameState = np.copy(gameState)
     screen.fill(bg)
-    time.sleep(0.5)
+    time.sleep(0.1)
 
     # Eventos de teclado
     ev = pygame.event.get()
-    
+   
     for event in ev:
+         if event.type == pygame.QUIT:
+            endGame = True
+
         if event.type == pygame.KEYDOWN:
-            pauseExect = not pauseExect
+            pauseExec = not pauseExec
 
         mouseClick = pygame.mouse.get_pressed()
-        if sum(mouseClick)>0:
-            posX, posY = pygame.mouse.get_pos()
-            celX, celY = int(np.floor(posX /dimCW)), int(np.floor(posY/dimCH))
-            newGameState[celX, celY] = not mouseClick[2]
+          if sum(mouseClick) > 0:
+            # Click del medio pausa / reanuda el juego
+            if mouseClick[1]:
+
+                pauseExec = not pauseExec
+
+            else:
+
+                # Obtengo las coordenadas del cursor del mouse en pixeles
+                posX, posY, = pygame.mouse.get_pos()
+
+                # Convierto de coordenadas en pixeles a celda clickeada en la grilla
+                celX, celY = int(np.floor(posX / dimCW)), int(np.floor(posY / dimCH))
+
+                # Click izquierdo y derecho permutan entre vida y muerte
+                newGameState[celX, celY] = not gameState[celX, celY]
+
 
     for y in range(0, nxC):
         for x in range(0,nyC):
