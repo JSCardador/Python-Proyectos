@@ -10,7 +10,7 @@ pygame.init()
 pygame.display.set_caption("Juego de la vida - JSC")
 
 # Cargamos el icono, si lo hay
-icon ='./Logo.ico'
+icon ='./icono.ico'
 if os.path.exists(icon):
     icono = pygame.image.load(icon)
 
