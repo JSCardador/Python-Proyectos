@@ -1,3 +1,5 @@
+# Script para ordenar alfabeticamente las palabras dentro de una frase
+
 def sortWords(myString):
     words = myString.split()
     words.sort()

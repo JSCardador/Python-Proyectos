@@ -1,3 +1,5 @@
+# Script  para buscar los numeros de la sucesión de Fibonacci hasta el numero indicado
+
 def fibonacci(number):
     n, n1, n2 = 0, 0, 1
     FibonacciListNumber = [0, 1]

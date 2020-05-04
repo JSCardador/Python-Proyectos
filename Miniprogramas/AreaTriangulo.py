@@ -1,3 +1,5 @@
+# Script para calcular el area de un triangulo
+
 def AreaTriangle(L1, L2, L3):
     # Calculo del semiperimetro
     s = (L1 + L2 + L3)/2
